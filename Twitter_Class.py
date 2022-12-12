@@ -4,15 +4,16 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
+import os
 
 
 class TwitterPost:
     def __init__(self):
         self.my_service = Service("C:/Zoo_Development/chromedriver.exe")
         self.driver = webdriver.Chrome(service=self.my_service)
-        self.gmail = "chincho2022chincho@gmail.com"
-        self.user_name = "@Chincharito123"
-        self.password = "PeackyBlinders888"
+        self.gmail = os.environ.get("TWITTER_GMAIL")
+        self.user_name = os.environ.get("USER_NAME")
+        self.password = os.environ.get("TWITTER_PASSWORD")
 
     def into_twitter(self):
         try:
